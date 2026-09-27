@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "aeroops-flight-ops",
+  "version": "0.1.0",
+  "description": "AeroOps domain expertise for flight operations and incident intelligence. Provides reusable, project-grounded knowledge of flight operational states, disruption and delay definitions, the incident lifecycle, severity, airport operational status, prioritization rules, domain terminology, and AeroOps conventions.",
+  "author": {
+    "name": "AeroOps"
+  },
+  "keywords": [
+    "flight",
+    "aviation",
+    "airline",
+    "airport",
+    "operations",
+    "flight operations",
+    "incident",
+    "disruption",
+    "delay",
+    "severity"
+  ],
+  "license": "MIT"
+}
