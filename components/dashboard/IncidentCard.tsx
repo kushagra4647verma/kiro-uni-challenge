@@ -1,7 +1,7 @@
 import type { Incident } from "@/lib/domain/types";
 import { INCIDENT_TYPE_LABEL } from "@/lib/domain/labels";
 import { formatDateTime, toIsoAttr } from "@/lib/domain/format";
-import { SeverityBadge } from "./SeverityBadge";
+import { SeverityBadge } from "@/components/SeverityBadge";
 import { IncidentStatusBadge } from "./StatusBadge";
 
 function Chips({ items }: { items: string[] }) {

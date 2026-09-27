@@ -8,20 +8,22 @@ const SEVERITY_CLASSES: Record<Severity, string> = {
   CRITICAL: "bg-red-500/20 text-red-300 ring-red-500/40",
 };
 
-/**
- * Severity indicator. Conveys level with a text label AND a data-severity
- * attribute (not color alone), so criticality is programmatically detectable
- * and accessible (Requirements 4.3, 8.3).
- */
-export function SeverityBadge({ severity }: { severity: Severity }) {
+interface SeverityBadgeProps {
+  severity: Severity;
+  className?: string;
+}
+
+export function SeverityBadge({
+  severity,
+  className = "",
+}: SeverityBadgeProps) {
   return (
     <span
+      data-testid="severity-badge"
       data-severity={severity}
-      className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold uppercase tracking-wide ring-1 ring-inset ${SEVERITY_CLASSES[severity]}`}
+      className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold uppercase tracking-wide ring-1 ring-inset ${SEVERITY_CLASSES[severity]} ${className}`}
     >
       {SEVERITY_LABEL[severity]}
     </span>
   );
 }
-
-// Day 3 hook test - 2

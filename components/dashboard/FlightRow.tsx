@@ -2,8 +2,7 @@ import type { DisruptedFlightVM } from "@/lib/domain/types";
 import { INCIDENT_TYPE_LABEL } from "@/lib/domain/labels";
 import { formatDateTime, toIsoAttr } from "@/lib/domain/format";
 import { FlightStatusBadge } from "./StatusBadge";
-import { SeverityBadge } from "./SeverityBadge";
-
+import { SeverityBadge } from "@/components/SeverityBadge";
 /** One labelled field within a flight row. */
 function Field({
   label,
