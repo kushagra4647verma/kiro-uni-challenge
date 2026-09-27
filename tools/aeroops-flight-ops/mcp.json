@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "external-context": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    }
+  }
+}

@@ -74,3 +74,38 @@ Detailed knowledge lives in `references/` to keep this file small:
   `.kiro/specs/flight-disruption-intelligence`,
   `.kiro/specs/incident-severity-badge`
 - Project guidance: `.kiro/steering/{product,tech,structure}.md`
+
+
+## External operational context
+
+Use the bundled MCP external-context tools when a task requires
+information that is not contained in the AeroOps project data.
+
+Examples include:
+
+- external airport operational notices
+- published airport advisories
+- external weather or operational context
+- source material needed to investigate an incident
+
+External context is supporting evidence, not AeroOps domain truth.
+
+Do not use MCP to redefine:
+
+- flight status semantics
+- delayed/disrupted classification
+- incident lifecycle
+- severity ranking
+- airport status values
+- prioritization rules
+
+Those remain defined by the AeroOps domain model and specifications.
+
+When using external context:
+
+1. Identify the flight, airport, or incident being investigated.
+2. Retrieve relevant external information through MCP.
+3. Preserve the external source and retrieval context.
+4. Clearly distinguish external facts from AeroOps classifications.
+5. Do not convert external information into an AeroOps classification
+   unless an existing AeroOps domain rule explicitly supports that mapping.
