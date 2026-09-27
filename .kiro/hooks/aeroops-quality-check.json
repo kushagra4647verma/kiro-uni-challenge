@@ -4,13 +4,13 @@
     {
       "name": "AeroOps Quality Check",
       "trigger": "PostFileSave",
-      "description": "After saving a TypeScript source file under app/, components/, lib/, or tests/, run the project's existing type check, lint, and test commands and report the first failure.",
-      "matcher": "^(app|components|lib|tests)/.*\\.(ts|tsx)$",
       "action": {
         "type": "command",
-        "command": "echo \"AeroOps quality check: type-check -> lint -> test\" && echo \"--- type-check (tsc --noEmit) ---\" && npm run type-check && echo \"--- lint (next lint) ---\" && npm run lint && echo \"--- test (vitest run) ---\" && npm run test && echo \"AeroOps quality check passed.\"",
-        "timeout": 300
-      }
+        "command": "echo \"AeroOps quality check: type-check -> lint -> test\" && echo \"--- type-check (tsc --noEmit) ---\" && npm run type-check && echo \"--- lint (next lint) ---\" && npm run lint && echo \"--- test (vitest run) ---\" && npm run test && echo \"AeroOps quality check passed.\""
+      },
+      "description": "After saving a TypeScript source file under app/, components/, lib/, or tests/, run the project's existing type check, lint, and test commands and report the first failure.",
+      "matcher": "^(app|components|lib|tests)/.*\\.(ts|tsx)$",
+      "enabled": true
     }
   ]
 }

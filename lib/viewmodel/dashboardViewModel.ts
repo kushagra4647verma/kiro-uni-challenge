@@ -21,28 +21,8 @@ import {
   sortDisruptedFlights,
   sortIncidents,
 } from "@/lib/domain/prioritization";
+import { highestSeverityActiveIncident } from "@/lib/domain/incidentLinks";
 import { delayMinutes, formatDelay } from "@/lib/domain/format";
-
-/**
- * Resolve the highest-severity incident linked to a flight (active incidents
- * only). Returns null when there is no resolvable linked active incident.
- */
-function topIncidentForFlight(
-  flight: Flight,
-  incidentsById: Map<string, Incident>,
-  activeIds: ReadonlySet<string>,
-): Incident | null {
-  let top: Incident | null = null;
-  for (const id of flight.incidentIds) {
-    if (!activeIds.has(id)) continue;
-    const incident = incidentsById.get(id);
-    if (!incident) continue; // dangling reference — ignore
-    if (!top || SEVERITY_RANK[incident.severity] > SEVERITY_RANK[top.severity]) {
-      top = incident;
-    }
-  }
-  return top;
-}
 
 function toDisruptedFlightVM(
   flight: Flight,
@@ -50,7 +30,7 @@ function toDisruptedFlightVM(
   activeIds: ReadonlySet<string>,
 ): DisruptedFlightVM {
   const mins = delayMinutes(flight.scheduledDeparture, flight.estimatedDeparture);
-  const top = topIncidentForFlight(flight, incidentsById, activeIds);
+  const top = highestSeverityActiveIncident(flight, incidentsById, activeIds);
   return {
     flight,
     delayMinutes: mins,

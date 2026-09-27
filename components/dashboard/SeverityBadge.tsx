@@ -23,3 +23,5 @@ export function SeverityBadge({ severity }: { severity: Severity }) {
     </span>
   );
 }
+
+// Day 3 hook test - 2
